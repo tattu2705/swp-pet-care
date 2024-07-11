@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(180deg, #A9B3D4 49.62%, #A9B3D4 49.62%, rgba(169, 212, 207, 0.0625) 93.44%);
+
+    &-logoinfo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &-nav {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        &__items {
+            display: flex;
+            gap: 50px;
+            cursor: pointer;
+            font-weight: 400;
+            
+        }
+    }
+
+    &-user {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        &__login {
+
+        }
+    }
+}
