@@ -16,11 +16,11 @@ const Header = () => {
             </div>
             <div className='header-nav'>
                 <ul className='header-nav__items'>
-                    <li><h5>Home</h5></li>
-                    <li><h5>Services</h5></li>
-                    <li><h5>Shop</h5></li>
-                    <li><h5>About</h5></li>
-                    <li><h5>Blog</h5></li>
+                    <li><h3>Home</h3></li>
+                    <li><h3>Services</h3></li>
+                    <li><h3>Shop</h3></li>
+                    <li><h3>About</h3></li>
+                    <li><h3>Blog</h3></li>
                 </ul>
             </div>
             <div className='header-user'>
