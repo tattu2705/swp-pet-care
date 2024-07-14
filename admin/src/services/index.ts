@@ -21,3 +21,12 @@ interface Appointment {
   export const updateAppointment = async (id: string, status: string): Promise<void> => {
     await axios.post(`http://localhost:9999/appointments/update/${id}`, { status });
   }
+
+  export const deleteAppointment = async (id: string): Promise<void> => {
+    await axios.post(`http://localhost:9999/appointments/delete/${id}`);
+  }
+
+  export const updateAppointmentData = async (id: string, data: any): Promise<void> => {
+    await axios.post(`http://localhost:9999/appointments/updateData/${id}`, {...data});
+}
+ 
