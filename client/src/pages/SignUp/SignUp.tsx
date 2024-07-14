@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { toast } from 'react-toastify';
+import { signUp } from '../../services';
 
 function Copyright(props: any) {
   return (
@@ -33,10 +35,21 @@ export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    //   firstName: data.get('firstName'),
+    //   lastName: data.get('lastName'),
+    //   adrress: data.get('address')
+    // });
+    signUp(data.get('email') as string, data.get('password') as string, data.get('firstName') as string, data.get('lastName') as string, data.get('address') as string).then((data) => {
+      toast.success('User registered successfully');
+      console.log(data)
+    }
+    ).catch((error) => {
+      toast.error('Error while registering')
     });
+
   };
 
   return (

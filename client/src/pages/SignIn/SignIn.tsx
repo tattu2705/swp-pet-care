@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { login } from '../../services';
+import { toast } from 'react-toastify';
 
 function Copyright(props: any) {
   return (
@@ -33,10 +35,18 @@ export default function SignIn() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    // console.log({
+    //   email: data.get('email'),
+    //   password: data.get('password'),
+    // });
+    login(data.get('email') as string, data.get('password') as string).then((data) => {
+      if (!data)
+        toast.error('Invalid credentials');
+      else {
+        localStorage.setItem('data', JSON.stringify(data));
+        window.location.href = '/';
+      }
+    })
   };
 
   return (
